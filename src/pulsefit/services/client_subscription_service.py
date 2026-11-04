@@ -4,8 +4,8 @@ from src.pulsefit.models import ClientSubscription
 def get_all_subscriptions() -> list[ClientSubscription]:
     return client_subscription_repository.get_all()
 
-def buy_subscription(user_id: int, subscription_type_id: int, start_date: str, end_date: str):
-    start_date = start_date.strip()
+def buy_subscription(user_id: int, subscription_type_id: int, start_date: str, end_date: str): # Функция покупки/оформления абонемента
+    start_date = start_date.strip() 
     end_date = end_date.strip()
 
     if not start_date or not end_date:

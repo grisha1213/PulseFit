@@ -1,13 +1,11 @@
-from src.pulsefit.repositories import training_repository
-from src.pulsefit.models import Training
+from src.pulsefit.repositories import training_repository # Импортируем репозиторий тренировок
+from src.pulsefit.models import Training # Импортируем модель тренировки
 
-def get_all_trainings() -> list[Training]:
+def get_all_trainings() -> list[Training]: # Функция для получения расписания всех тренировок
     return training_repository.get_all()
 
-def get_training(training_id: int) -> Training | None:
-    return training_repository.get_by_id(training_id)
 
-def add_training(trainer_id: int, title: str, start_time: str):
+def add_training(trainer_id: int, title: str, start_time: str): # Функция добавления новой тренировки в расписание
     title = title.strip()
     start_time = start_time.strip()
 
@@ -18,7 +16,7 @@ def add_training(trainer_id: int, title: str, start_time: str):
     if trainer_id <= 0:
         raise Exception("Некорректный ID тренера")
 
-    training_repository.create(trainer_id, title, start_time)
+    training_repository.create(trainer_id, title, start_time) # Создаем запись в базе данных через репозиторий
 
 def remove_training(training_id: int):
     training_repository.delete(training_id)

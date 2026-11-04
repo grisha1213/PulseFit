@@ -8,13 +8,16 @@ TRAINER_ROLE_ID = 3
 
 # Проверяет данные для входа
 def authenticate(login: str, password: str) -> User | None:
+    # Очищаем переданный логин от случайных пробелов в начале и конце
     login = login.strip()
     password = password.strip()
-
+    # Проверяем, не оказались ли логин или пароль пустыми строками после очистки
     if not login or not password:
         return None
 
     user = user_repository.get_by_login(login) # поиск пользователя в базе
+
+    # Проверяем: если пользователь не найден ИЛИ его пароль из базы не совпадает с введенным
     if not user or user.password != password:
         return None
 

@@ -1,10 +1,10 @@
-from src.pulsefit.repositories import subscription_type_repository
-from src.pulsefit.models import SubscriptionType
+from src.pulsefit.repositories import subscription_type_repository # Импортируем репозиторий типов абонементов
+from src.pulsefit.models import SubscriptionType # Импортируем модель типа абонемента
 
-def get_all_types() -> list[SubscriptionType]:
+def get_all_types() -> list[SubscriptionType]: # Функция для запроса всех доступных абонементов, возвращающая список объектов
     return subscription_type_repository.get_all()
 
-def add_type(name: str, price: int, duration_days: int):
+def add_type(name: str, price: int, duration_days: int): # Функция для добавления нового типа абонемента
     name = name.strip()
 
     if not name:
