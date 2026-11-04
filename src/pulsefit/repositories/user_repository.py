@@ -1,6 +1,6 @@
 # Подключаем функцию получения соединения и нужную модель данных
 from src.pulsefit.database.init_db import get_connection
-from src.pulsefit.models import User
+from src.pulsefit.models.user import User
 
 # Вспомогательная функция, преобразующая строку из БД в объект модели
 def _map(row) -> User:

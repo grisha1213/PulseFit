@@ -1,5 +1,5 @@
 from src.pulsefit.database.init_db import get_connection
-from src.pulsefit.models import Training
+from src.pulsefit.models.training import Training
 
 # Вспомогательная функция преобразования данных
 def _map(row) -> Training:

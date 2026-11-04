@@ -1,5 +1,5 @@
 from src.pulsefit.database.init_db import get_connection # Подключение к базе данных 
-from src.pulsefit.models import SubscriptionType #подключаются необходимые зависимости
+from src.pulsefit.models.subscription_type import SubscriptionType #подключаются необходимые зависимости
 
 # вспомогательная функция преобразования данных
 def _map(row) -> SubscriptionType: 

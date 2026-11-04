@@ -1,4 +1,4 @@
-from src.pulsefit.models import User
+from src.pulsefit.models.user import User
 from src.pulsefit.repositories import user_repository
 
 # Задаем константы для ролей (предположим, 1 - Админ, 2 - Клиент, 3 - Тренер)

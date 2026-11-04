@@ -1,5 +1,5 @@
 from src.pulsefit.database.init_db import get_connection
-from src.pulsefit.models import ClientSubscription
+from src.pulsefit.models.client_subscription import ClientSubscription
 
 def _map(row) -> ClientSubscription:
     return ClientSubscription(*row)

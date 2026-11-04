@@ -1,5 +1,5 @@
 from src.pulsefit.repositories import booking_repository
-from src.pulsefit.models import Booking
+from src.pulsefit.models.booking import Booking
 
 def get_all_bookings() -> list[Booking]:
     return booking_repository.get_all()

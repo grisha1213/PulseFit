@@ -1,5 +1,5 @@
 from src.pulsefit.repositories import training_repository # Импортируем репозиторий тренировок
-from src.pulsefit.models import Training # Импортируем модель тренировки
+from src.pulsefit.models.training import Training # Импортируем модель тренировки
 
 def get_all_trainings() -> list[Training]: # Функция для получения расписания всех тренировок
     return training_repository.get_all()

@@ -23,5 +23,11 @@ def init_db():
 
     print("\nDatabase fitpulse.db successfully created in the correct folder!")
 
+
+def get_connection():
+    conn = sqlite3.connect(DB_PATH)
+    conn.execute('PRAGMA foreign_keys = ON;')
+    return conn
+
 if __name__ == "__main__":
     init_db()

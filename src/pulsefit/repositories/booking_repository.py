@@ -1,5 +1,5 @@
 from src.pulsefit.database.init_db import get_connection
-from src.pulsefit.models import Booking
+from src.pulsefit.models.booking import Booking
 
 # Вспомогательная функция преобразования данных
 def _map(row) -> Booking:

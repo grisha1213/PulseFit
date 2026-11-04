@@ -1,5 +1,5 @@
 from src.pulsefit.repositories import client_subscription_repository
-from src.pulsefit.models import ClientSubscription
+from src.pulsefit.models.client_subscription import ClientSubscription
 
 def get_all_subscriptions() -> list[ClientSubscription]:
     return client_subscription_repository.get_all()
