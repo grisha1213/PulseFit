@@ -19,6 +19,9 @@ def get_all() -> list[ClientSubscription]:
 
     return [_map(r) for r in rows]
 
+
+
+
 # Функция для поиска абонемента по ID
 def get_by_id(client_sub_id: int) -> ClientSubscription | None:
     conn = get_connection()
@@ -47,3 +50,5 @@ def create(user_id: int, subscription_type_id: int, start_date: str, end_date: s
 
     conn.commit()
     conn.close()
+
+

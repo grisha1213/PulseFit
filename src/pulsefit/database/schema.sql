@@ -88,7 +88,10 @@ INSERT INTO client_subscriptions (user_id, subscription_type_id, start_date, end
 
 -- Тренировки
 INSERT INTO trainings (trainer_id, title, start_time) VALUES 
-(1, 'Утренняя йога', '2026-10-25 09:00');
+(1, 'Утренняя йога', '2026-10-25 09:00'),
+(1, 'Силовая тренировка', '2026-10-26 14:00'),
+(1, 'Кроссфит интенсив', '2026-10-27 18:30'),
+(1, 'Растяжка (Stretching)', '2026-10-28 10:00');
 
 -- Записи клиентов
 INSERT INTO booking (user_id, training_id, status) VALUES 

@@ -1,32 +1,39 @@
 from src.pulsefit.services import user_service
 
-def login_ui():
-    print("\n=== Авторизация ===")
-    login = input("Введите логин: ")
-    password = input("Введите пароль: ")
+def login_ui() -> user_service.User | None:
+    print("\n" + "=" * 40)
+    print("         🔐 АВТОРИЗАЦИЯ В СИСТЕМЕ")
+    print("=" * 40)
     
-    # Обращаемся к слою сервисов для проверки
-    user = user_service.authenticate(login, password)
-    
-    if user:
-        print(f"Успешный вход! Добро пожаловать, {user.name}.")
-        return user  # Возвращаем пользователя для дальнейшего определения его меню
-    else:
-        print("Ошибка: Неверный логин или пароль.")
+    login = input("  🔸 Введите логин: ").strip()
+    password = input("  🔸 Введите пароль: ").strip()
+
+    try:
+        user = user_service.authenticate(login, password)
+        if user:
+            print(f"\n  ✅ Добро пожаловать, {user.name} {user.surname}!")
+            return user
+        else:
+            print("\n  ❌ Ошибка: неверный логин или пароль.")
+            return None
+    except Exception as e:
+        print(f"\n  ❌ Ошибка при входе: {e}")
         return None
 
 def register_ui():
-    print("\n=== Регистрация нового клиента ===")
-    login = input("Придумайте логин: ")
-    password = input("Придумайте пароль: ")
-    name = input("Имя: ")
-    surname = input("Фамилия: ")
-    patronymic = input("Отчество (если нет, нажмите Enter): ")
-    phone = input("Номер телефона: ")
-    
-    # Отлов исключений (Exception) из бизнес-логики сервиса
+    print("\n" + "=" * 40)
+    print("         📝 РЕГИСТРАЦИЯ НОВОГО КЛИЕНТА")
+    print("=" * 40)
+
     try:
+        login = input("  🔸 Придумайте логин: ").strip()
+        password = input("  🔸 Придумайте пароль: ").strip()
+        name = input("  🔸 Имя: ").strip()
+        surname = input("  🔸 Фамилия: ").strip()
+        patronymic = input("  🔸 Отчество (если есть, иначе Enter): ").strip() or None
+        phone = input("  🔸 Телефон (+7...): ").strip()
+
         user_service.register_client(login, password, name, surname, phone, patronymic)
-        print("Регистрация успешно завершена! Теперь вы можете войти.")
+        print("\n  🎉 Регистрация прошла успешно! Теперь вы можете войти в систему.")
     except Exception as e:
-        print(f"Ошибка регистрации: {e}")
+        print(f"\n  ❌ Ошибка регистрации: {e}")

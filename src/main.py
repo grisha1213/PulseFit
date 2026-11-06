@@ -3,7 +3,7 @@ from pathlib import Path
 
 # Находим корневую папку проекта (на 3 уровня выше текущего файла main.py)
 # и добавляем её в пути поиска Python, чтобы работали импорты from src...
-ROOT_DIR = Path(__file__).resolve().parents[3]
+ROOT_DIR = Path(__file__).resolve().parents[1]
 if str(ROOT_DIR) not in sys.path:
     sys.path.insert(0, str(ROOT_DIR))
 

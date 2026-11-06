@@ -71,3 +71,20 @@ def delete(user_id: int):
     
     conn.commit()
     conn.close()
+
+def get_by_id(user_id: int) -> User | None:
+    conn = get_connection()
+    cur = conn.cursor()
+
+    cur.execute("""
+        SELECT u.user_id, u.name, u.surname, u.patronymic, 
+               u.phone, u.password, u.login, u.user_role_id, 
+               r.name 
+        FROM users u
+        LEFT JOIN user_roles r ON u.user_role_id = r.user_role_id
+        WHERE u.user_id = ?
+    """, (user_id,))
+    row = cur.fetchone()
+
+    conn.close()
+    return _map(row) if row else None
