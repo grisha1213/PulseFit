@@ -1,3 +1,12 @@
+import sys
+from pathlib import Path
+
+# Находим корневую папку проекта (на 3 уровня выше текущего файла main.py)
+# и добавляем её в пути поиска Python, чтобы работали импорты from src...
+ROOT_DIR = Path(__file__).resolve().parents[3]
+if str(ROOT_DIR) not in sys.path:
+    sys.path.insert(0, str(ROOT_DIR))
+
 # Импортируем соседние модули интерфейса из этой же папки
 from src.pulsefit.ui import auth
 from src.pulsefit.ui import menu
@@ -21,8 +30,8 @@ def start_app():
                 if user.user_role_id == 1:
                     # Вызов меню администратора
                     menu.admin_menu(user)
-                elif user.user_role_id == 2:
-                    # Вызов меню клиента
+                elif user.user_role_id in (2, 3):
+                    # Вызов меню клиента (учитываем роли из БД)
                     menu.client_menu(user)
                 else:
                     print("Ошибка: неизвестная роль.")

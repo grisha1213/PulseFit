@@ -67,6 +67,7 @@ def client_menu(user):
             print("\n--- Запись на тренировку ---")
             training_id = int(input("ID тренировки: "))
             try:
+                training_id = int(input("ID тренировки: "))
                 booking_service.book_training(user.user_id, training_id)
                 print("Вы записаны!")
             except Exception as e:
