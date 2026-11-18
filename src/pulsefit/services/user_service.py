@@ -81,3 +81,37 @@ def create_admin(
         raise Exception(f"Пользователь с логином '{login}' уже существует")
 
     user_repository.create(name, surname, patronymic, phone, password, login, ADMIN_ROLE_ID)
+
+
+def get_all_users():
+    """Возвращает список всех пользователей из базы данных."""
+    return user_repository.get_all()
+
+def update_user(user_id: int, name: str, surname: str, phone: str):
+    """Обновляет данные пользователя."""
+    if user_id <= 0:
+        raise Exception("Некорректный ID пользователя.")
+    
+    user = user_repository.get_by_id(user_id)
+    if not user:
+        raise Exception("Пользователь не найден.")
+        
+    name = name.strip()
+    surname = surname.strip()
+    phone = phone.strip()
+    
+    if not name or not surname or not phone:
+        raise Exception("Имя, фамилия и телефон не могут быть пустыми.")
+        
+    user_repository.update(user_id, name, surname, phone)
+
+def delete_user(user_id: int):
+    """Удаляет пользователя по ID."""
+    if user_id <= 0:
+        raise Exception("Некорректный ID пользователя.")
+    
+    user = user_repository.get_by_id(user_id)
+    if not user:
+        raise Exception("Пользователь с таким ID не найден.")
+        
+    user_repository.delete(user_id)

@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<client_subscriptions>
+    <subscription>
+        <client_subscription_id>1</client_subscription_id>
+        <start_date>2026-10-01</start_date>
+        <end_date>2026-11-01</end_date>
+        <status>Активен</status>
+        <user>
+            <user_id>2</user_id>
+            <name>Иван</name>
+            <surname>Смирнов</surname>
+            <phone>+79994445566</phone>
+        </user>
+        <subscription_type>
+            <subscription_type_id>1</subscription_type_id>
+            <name>Безлимит на 1 месяц</name>
+            <price>2500</price>
+            <duration_days>30</duration_days>
+        </subscription_type>
+    </subscription>
+    <subscription>
+        <client_subscription_id>2</client_subscription_id>
+        <start_date>19.11.2026</start_date>
+        <end_date>17.02.2027</end_date>
+        <status>Активно</status>
+        <user>
+            <user_id>5</user_id>
+            <name>artem</name>
+            <surname>sokolov</surname>
+            <phone>7899012313</phone>
+        </user>
+        <subscription_type>
+            <subscription_type_id>2</subscription_type_id>
+            <name>Безлимит на 3 месяца</name>
+            <price>7000</price>
+            <duration_days>90</duration_days>
+        </subscription_type>
+    </subscription>
+</client_subscriptions>

@@ -1,0 +1,38 @@
+[
+    {
+        "client_subscription_id": 1,
+        "start_date": "2026-10-01",
+        "end_date": "2026-11-01",
+        "status": "Активен",
+        "user": {
+            "user_id": 2,
+            "name": "Иван",
+            "surname": "Смирнов",
+            "phone": "+79994445566"
+        },
+        "subscription_type": {
+            "subscription_type_id": 1,
+            "name": "Безлимит на 1 месяц",
+            "price": 2500,
+            "duration_days": 30
+        }
+    },
+    {
+        "client_subscription_id": 2,
+        "start_date": "19.11.2026",
+        "end_date": "17.02.2027",
+        "status": "Активно",
+        "user": {
+            "user_id": 5,
+            "name": "artem",
+            "surname": "sokolov",
+            "phone": "7899012313"
+        },
+        "subscription_type": {
+            "subscription_type_id": 2,
+            "name": "Безлимит на 3 месяца",
+            "price": 7000,
+            "duration_days": 90
+        }
+    }
+]

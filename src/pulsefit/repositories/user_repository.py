@@ -63,15 +63,18 @@ def delete(user_id: int):
     conn = get_connection()
     cur = conn.cursor()
     
-    # Физическое удаление пользователя
-    cur.execute("""
-        DELETE FROM users
-        WHERE user_id = ?
-    """, (user_id,))
+    # 1. Сначала удаляем все записи на тренировки этого пользователя
+
+    cur.execute("DELETE FROM booking WHERE user_id = ?", (user_id,))
+    
+    # 2. Затем удаляем все абонементы этого пользователя
+    cur.execute("DELETE FROM client_subscriptions WHERE user_id = ?", (user_id,))
+    
+    # 3. И только теперь удаляем самого пользователя
+    cur.execute("DELETE FROM users WHERE user_id = ?", (user_id,))
     
     conn.commit()
     conn.close()
-
 def get_by_id(user_id: int) -> User | None:
     conn = get_connection()
     cur = conn.cursor()
@@ -88,3 +91,17 @@ def get_by_id(user_id: int) -> User | None:
 
     conn.close()
     return _map(row) if row else None
+
+
+def update(user_id: int, name: str, surname: str, phone: str):
+    conn = get_connection()
+    cur = conn.cursor()
+    
+    cur.execute("""
+        UPDATE users
+        SET name = ?, surname = ?, phone = ?
+        WHERE user_id = ?
+    """, (name, surname, phone, user_id))
+    
+    conn.commit()
+    conn.close()
