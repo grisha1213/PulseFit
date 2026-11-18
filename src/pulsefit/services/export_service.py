@@ -9,7 +9,7 @@ import yaml
 BASE_DIR = Path(__file__).resolve().parent.parent       # папка src/pulsefit
 PROJECT_ROOT = BASE_DIR.parent.parent                   # корень проекта
 DB_PATH = BASE_DIR / "database" / "fitpulse.db"         # src/pulsefit/database/fitpulse.db
-OUT_DIR = PROJECT_ROOT / "out"                          # папка out в корне проекта
+OUT_DIR = BASE_DIR.parent / "out"  # теперь создаётся в src/out                  # папка out в корне проекта
 
 
 class ExportService:
